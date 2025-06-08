@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Feedback App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 600px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .feedback {
+            margin-top: 1rem;
+            background: #fff8e1;
+            padding: 1rem;
+            border-left: 5px solid #ffb300;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Resume (PDF)</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="resume" accept=".pdf" required>
+            <br><br>
+            <button type="submit">Analyze</button>
+        </form>
+        {% if feedback %}
+        <div class="feedback">
+            {{ feedback|safe }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
